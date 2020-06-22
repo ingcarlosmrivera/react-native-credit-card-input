@@ -30,6 +30,23 @@ const s = StyleSheet.create({
   inputLabel: {
     fontWeight: "bold",
   },
+  inputBottomSeparation: {
+    marginBottom: 10
+  },
+  inputTopSeparation: {
+    marginTop: 10
+  },
+  inputLine: {
+    flexDirection: "row",
+    marginTop: 10,
+    marginBottom: 10
+  },
+  inputLineSize: {
+    flex: 1
+  },
+  inputLineSeparation: {
+    paddingRight: 10
+  },
   input: {
     height: 40,
   },
@@ -182,14 +199,14 @@ export default class CreditCardInput extends Component {
             keyboardType="numeric"
             containerStyle={[inputContainerStyle]} />
 
-          <View style={{ flexDirection: "row", marginTop: 10, marginBottom: 10 }}>
-            <View style={{ flex: 1, paddingRight: 10 }}>
+          <View style={s.inputLine}>
+            <View style={[s.inputLineSize, s.inputLineSeparation]}>
               <CCInput {...this._inputProps("expiry")}
                 keyboardType="numeric"
                 containerStyle={[inputContainerStyle]} />
             </View>
 
-            <View style={{ flex: 1 }}>
+            <View style={s.inputLineSize}>
               { requiresCVC &&
                 <CCInput {...this._inputProps("cvc")}
                   keyboardType="numeric"
@@ -199,7 +216,7 @@ export default class CreditCardInput extends Component {
 
           { requiresName &&
             <CCInput {...this._inputProps("name")}
-              containerStyle={[inputContainerStyle, { marginBottom: 10 }]} /> }
+              containerStyle={[inputContainerStyle, s.inputBottomSeparation]} /> }
           { requiresPostalCode &&
             <CCInput {...this._inputProps("postalCode")}
               keyboardType="numeric"
