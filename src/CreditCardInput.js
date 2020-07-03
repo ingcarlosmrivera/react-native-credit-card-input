@@ -196,20 +196,17 @@ export default class CreditCardInput extends Component {
           style={[s.inputContainer]}>
 
           <CCInput {...this._inputProps("number")}
-            keyboardType="numeric"
             containerStyle={[inputContainerStyle]} />
 
           <View style={s.inputLine}>
             <View style={[s.inputLineSize, s.inputLineSeparation]}>
               <CCInput {...this._inputProps("expiry")}
-                keyboardType="numeric"
                 containerStyle={[inputContainerStyle]} />
             </View>
 
             <View style={s.inputLineSize}>
               { requiresCVC &&
                 <CCInput {...this._inputProps("cvc")}
-                  keyboardType="numeric"
                   containerStyle={[inputContainerStyle]} /> }
             </View>
           </View>
