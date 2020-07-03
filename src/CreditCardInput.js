@@ -119,9 +119,12 @@ export default class CreditCardInput extends Component {
 
   componentDidMount = () => this._focus(this.props.focused);
 
-  componentWillReceiveProps = newProps => {
-    if (this.props.focused !== newProps.focused) {
-      this.lastFocusedProps = newProps.focused;
+  shouldComponentUpdate(nextProps, nextState){
+    return (this.props.focused !== nextProps.focused)
+  }
+
+  componentDidUpdate(prevProps){
+      this.lastFocusedProps = this.props.focused;
 
       setTimeout(() => {
         if (this.lastFocused !== this.lastFocusedProps) {
@@ -129,8 +132,7 @@ export default class CreditCardInput extends Component {
           this.lastFocused = this.lastFocusedProps;
         }
       }, FOCUS_TIMEOUT);
-    }
-  };
+	};
 
   _focus = field => {
     if (!field) return;
