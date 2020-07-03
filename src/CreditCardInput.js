@@ -219,7 +219,6 @@ export default class CreditCardInput extends Component {
               containerStyle={[inputContainerStyle, s.inputBottomSeparation]} /> }
           { requiresPostalCode &&
             <CCInput {...this._inputProps("postalCode")}
-              keyboardType="numeric"
               containerStyle={[inputContainerStyle]} /> }
 
           {children}
